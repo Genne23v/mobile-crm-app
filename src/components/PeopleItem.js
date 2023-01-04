@@ -34,20 +34,20 @@ const styles = StyleSheet.create({
 
 const PeopleItem = (props) => {
     return (
-        <View style={[theme.cardStyle, styles.card]}>
-            <Image 
-                source={require('../images/background.jpg')}
-                style={[theme.cardImageStyle, styles.image]}
-            />
-            <Icon 
-                name={'user'}
-                size={100}
-                style={styles.icon}
-            />
-            <Text style={[theme.cardTitleStyle, styles.title]}>{props.people.firstName} {props.people.lastName}</Text>
-            <Text style={[theme.cardActionStyle, styles.action]}>{props.people.company}</Text>
-        </View>
-    )
+      <View style={[theme.cardStyle, styles.card]}>
+        <Image
+          source={require('../images/background.jpg')}
+          style={[theme.cardImageStyle, styles.image]}
+        />
+        <Icon name="user" size={100} style={styles.icon} />
+        <Text style={[theme.cardTitleStyle, styles.title]}>
+          {props.people.firstName} {props.people.lastName}
+        </Text>
+        <Text style={[theme.cardActionStyle, styles.action]}>
+          {props.people.company}
+        </Text>
+      </View>
+    );
 }
 
 export default connect(null, actions)(PeopleItem);

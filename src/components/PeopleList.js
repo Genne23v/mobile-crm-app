@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import PeopleItem from './PeopleItem';
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        width: 353,
-        flexWrap: 'wrap',
-        paddingTop: 20,
-        paddingLeft: 20,
-    }
+  container: {
+    flex: 1,
+    width: 450,
+    flexWrap: 'wrap',
+    paddingTop: 20,
+    paddingLeft: 20,
+  },
 });
 
 class PeopleList extends Component {
