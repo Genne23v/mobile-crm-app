@@ -14,16 +14,16 @@ const styles = StyleSheet.create({
 });
 
 class PeopleList extends Component {
-    render() {
-        return (
-            <View style={styles.container}>
-            <FlatList
-                data={this.props.people}
-                renderItem={({item}) => <PeopleItem people={item} />}
-            />
-            </View>
-        )
-    }
+  render() {
+    return (
+      <View style={styles.container}>
+        <FlatList
+          data={this.props.people}
+          renderItem={({item}) => <PeopleItem people={item} />}
+        />
+      </View>
+    );
+  }
 }
 
 const mapStateToProps = state => {
