@@ -8,7 +8,7 @@ import * as actions from '../actions';
 
 const styles = StyleSheet.create({
   form: {
-    width: 380,
+    width: 390,
     flex: 1,
     paddingTop: 50,
     paddingBottom: 10,
