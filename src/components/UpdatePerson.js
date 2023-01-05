@@ -8,6 +8,7 @@ import * as actions from '../actions';
 
 const styles = StyleSheet.create({
   form: {
+    width: 380,
     flex: 1,
     paddingTop: 50,
     paddingBottom: 10,
@@ -24,12 +25,12 @@ const styles = StyleSheet.create({
   },
 });
 
-class AddPerson extends Component {
-  onAddPress() {
-    const {firstName, lastName, phone, email, company, project, notes} =
+class UpdatePerson extends Component {
+  onUpdatePress() {
+    const {firstName, lastName, phone, email, company, project, notes, _id} =
       this.props;
 
-    this.props.createNewContact({
+    this.props.saveContact({
       firstName,
       lastName,
       phone,
@@ -37,16 +38,15 @@ class AddPerson extends Component {
       company,
       project,
       notes,
+      _id,
     });
-
-    this.props.navigation.navigate('People');
   }
 
   render() {
     return (
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.form}>
-          <Text>Add a new contact</Text>
+          <Text>Update contact</Text>
           <Input
             placeholder="First name..."
             inputStyle={styles.fieldStyles}
@@ -103,14 +103,8 @@ class AddPerson extends Component {
               this.props.formUpdate({prop: 'notes', value})
             }
           />
-          {/* <MKTextField
-            textInputStyle={styles.fieldStyles}
-            placeholder={'First name...'}
-            tintColor={MKColor.Teal}
-          />
-           */}
           <View style={styles.addButton}>
-            <Button title="ADD" onPress={this.onAddPress.bind(this)} />
+            <Button title="UPDATE" onPress={this.onUpdatePress.bind(this)} />
           </View>
         </View>
       </ScrollView>
@@ -119,7 +113,8 @@ class AddPerson extends Component {
 }
 
 const mapStateToProps = state => {
-  const {firstName, lastName, phone, email, company, project, notes} = state;
+  const {firstName, lastName, phone, email, company, project, notes, _id} =
+    state;
   return {
     firstName,
     lastName,
@@ -128,6 +123,7 @@ const mapStateToProps = state => {
     company,
     project,
     notes,
+    _id,
   };
 };
-export default connect(mapStateToProps, actions)(AddPerson);
+export default connect(mapStateToProps, actions)(UpdatePerson);
